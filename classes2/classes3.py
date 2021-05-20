@@ -46,16 +46,61 @@
 # отформатированном виде: “Вася Иванов поступил в 2017 г. на факультет:
 # Программирование.”
 
-class Student:
-    def __init__(self, name,lastname,year_of_entrance, department,):
-        self.name = name
-        self.lastname = lastname
-        self.department = department
-        self.year_of_entrance = year_of_entrance
+# class Student:
+#     def __init__(self, name,lastname,year_of_entrance, department,):
+#         self.name = name
+#         self.lastname = lastname
+#         self.department = department
+#         self.year_of_entrance = year_of_entrance
+#
+#     def get_student_info(self):
+#         print(f'{self.name} {self.lastname} поступил в {self.year_of_entrance}г. На Факультет: {self.department}')
+#
+# student = Student("Бактыбек","Токтобеков", 2014, "Информационная Безопасность")
+# student.get_student_info()
 
-    def get_student_info(self):
-        print(f'{self.name} {self.lastname} поступил в {self.year_of_entrance}г. На Факультет: {self.department}')
 
-student = Student("Бактыбек","Токтобеков", 2014, "Информационная Безопасность")
-student.get_student_info()
+# 2)Airplane
+# Создайте новый класс Airplane. Создайте следующие характеристики (полей)
+# объекAта:
+# ● make (марка)
+# ● model
+# ● year
+# ● max_speed
+# ● odometer
+# ● is_flying
+# и методы имитирующих поведение самолета take off (взлет), fly (летать), land
+# приземление). Метод take off должен изменить is_flying на True, а land на False. По
+# умолчанию поле is_flying = False. Метод fly должен принимать расстояние полета и
+# изменять показания одометра (километраж). Создайте 1 объект класса и используйте
+# все методы класса.
 
+class Airplane:
+    def __init__(self,make,model,year, max_speed,odometer,is_flying=False):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.max_speed = max_speed
+        self.odometer = odometer
+        self.is_fly = is_flying
+
+    def take_off(self):
+        self.is_fly = True
+        print("Взлет")
+
+    def fly(self):
+        self.odometer = int(input("Введите расстояние полета: "))
+        print("Полет нормальный")
+        print(self.odometer, 'км')
+
+    def land(self):
+        self.is_fly = False
+        print("Приземление")
+
+
+a = Airplane("СУ", "100", "1989", 365, 0)
+a.take_off()
+print(a.is_fly)
+a.fly()
+a.land()
+print(a.is_fly)
